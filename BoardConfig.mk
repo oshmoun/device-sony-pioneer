@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include device/sony/nile/PlatformConfig.mk
+include device/sony/nile-common/PlatformConfig.mk
 
 TARGET_BOOTLOADER_BOARD_NAME := unknown
 ifneq (,$(filter %h3113,$(TARGET_PRODUCT)))

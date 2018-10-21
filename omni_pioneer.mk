@@ -1,5 +1,4 @@
-#
-# Copyright 2014 The Android Open Source Project
+# Copyright 2018 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,7 +11,20 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-add_lunch_combo omni_pioneer-eng
-add_lunch_combo omni_pioneer-userdebug
+# Bootanimation
+TARGET_BOOTANIMATION_SIZE := 1080p
+
+# Inherit device parts
+$(call inherit-product, device/sony/pioneer/aosp_h3113.mk)
+
+# Override Product Name
+PRODUCT_NAME := omni_pioneer
+PRODUCT_MODEL := Xperia XA2
+
+# Assert ota packages to be equal to ro.product.device or ro.build.product:
+TARGET_OTA_ASSERT_DEVICE := pioneer
+
+# Inherit rom parts
+$(call inherit-product, device/sony/common/omni.mk)
+$(call inherit-product, vendor/omni/config/gsm.mk)
